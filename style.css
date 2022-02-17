@@ -1,0 +1,40 @@
+.txtarea{
+          
+     width: 680px;
+     height: 130px;
+     margin-left: 2px;
+
+}
+.txtarea2{
+          
+     width: 1160px;
+     height: 250px;
+     margin-left:17px;
+
+}
+.maindiv{
+     background-color: aqua;
+}
+.transation{
+     width: 450px;
+     background-color: bisque;
+     margin-left: 20px;
+    
+}
+.tf{
+     width: 425px;
+     height: 20px;
+     
+}
+button{
+     margin-left: 4px;
+}
+.flex{
+     display: flex;
+}
+.pending{
+     margin-left: 20px;
+     background-color: bisque;
+     width: 690px;
+     height: 200px;
+}

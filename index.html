@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body class="maindiv">
+    <h1>Blockchain </h1>
+    <div class="container flex">
+        
+        <div class="container transation">
+
+            <label>From:</label>
+            <input class="tf" type="text" id="from" placeholder="@Sender Address">
+            <label>To:</label>
+            <input class="tf" type="text" id="too" placeholder="@Receiver Adderss">
+            <label>Amount:</label>
+            <input class="tf" type="text" id="amount" placeholder=" enter Amount ">
+            <br>
+            <br>
+            <button class="addtoblock">Add Transation</button>
+            <button class="pushtoblock">Push to Block</button>
+            <button class="viewblockchain">view Blockchain</button>
+        </div>
+        <div class="container pending">
+            <h3 style="display:inline-block;">Pending Transation</h3>
+            <button class="pendTransation">view pending Transation</button>
+            <textarea class="txtarea" id="pendingtrn"></textarea>
+
+        </div>
+    </div>
+    <div class="contaner">
+        
+        <h3>blockchain</h3>
+        <textarea class="txtarea2" id="viewBchain"></textarea>
+
+    </div>
+
+
+    <script src="./sha256.js" type="module"></script>
+    <script src="/bchain.js" type="module"></script>
+
+</body>
+
+</html>
