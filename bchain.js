@@ -112,6 +112,7 @@ function pendingTransation(){
 
 add1.addEventListener('click',()=>{
      addToBlock1();
+     alert("Transation Sucessfull")
 
 })
 add2.addEventListener('click',()=>{
