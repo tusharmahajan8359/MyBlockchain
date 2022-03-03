@@ -27,13 +27,13 @@ class Block{
     }
 
     calculateHash(){
-        console.log("called from block");
+        
         
          if(typeof(this.data)=="string"){
-            console.log(typeof(this.data));
+           
             return GenerateHash(this.index +''+ this.previousHash +''+this.timestamp+''+this.data+''+this.nonce);
          }
-         console.log("num of transation"+this.data.length)
+         
         return GenerateHash(this.index +''+ this.previousHash +''+this.timestamp+''+merkleTree(this.data)+''+this.nonce);
        
     }
@@ -109,7 +109,6 @@ function addToBlock1(){
 
 function pushToBlock(){
     let bc=new Block(++i,myTransations);
-    console.log("sucess");
     bchain.addblock(bc);
     myTransations=[];
 }

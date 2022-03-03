@@ -58,9 +58,9 @@ function getHash(msgblock) {
     H[7] = modifyAdd(H[7], h);
 
   }
-  console.log(hexToHash(H));
-  return (hexToHash(H)).padStart(64,"0");
  
+  return (hexToHash(H)).padStart(64,"0");
+  
 
 }
 //FUNCTIONS 
