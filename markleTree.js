@@ -5,7 +5,7 @@ var HashArray = [];
 function toHash(transactions){
     
     for(let i=0; i<transactions.length; i++){
-        console.log("how many transation"+i);
+       
         HashArray.push(GenerateHash(JSON.stringify(transactions[i])))
     }
 
