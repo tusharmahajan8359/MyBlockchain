@@ -1,4 +1,4 @@
-import { GenerateHash} from "./Nsha256.js";
+import { GenerateHash} from "./sha256.js";
 import {merkleTree} from "./markleTree.js"
 
 const add1=document.querySelector(".addtoblock")
@@ -27,8 +27,15 @@ class Block{
     }
 
     calculateHash(){
+        console.log("called from block");
+        
+         if(typeof(this.data)=="string"){
+            console.log(typeof(this.data));
+            return GenerateHash(this.index +''+ this.previousHash +''+this.timestamp+''+this.data+''+this.nonce);
+         }
+         console.log("num of transation"+this.data.length)
+        return GenerateHash(this.index +''+ this.previousHash +''+this.timestamp+''+merkleTree(this.data)+''+this.nonce);
        
-        return GenerateHash(this.index + this.previousHash +this.timestamp+merkleTree(this.data)+this.nonce);
     }
     liveTime(){
         let today = new Date()
@@ -45,15 +52,17 @@ class Block{
        console.log("Block mined     "+this.hash);
     }
 
-}
+} 
 
 class Blockchain{                               
     constructor(){                                
         this.chain=[this.createGenesisBlock()];    
+     
         this.difficulty=2;
 
     }
     createGenesisBlock(){
+     
         return new Block(0,"genesis block","0");
     }
     getLatestBlock(){
@@ -94,12 +103,14 @@ function addToBlock1(){
     let t=document.getElementById("too").value ;
     let a=document.getElementById("amount").value ;
     myTransations.push(new Transation(f,t,a));
-    // console.log("ok")
+ 
 
 }
 
 function pushToBlock(){
-    bchain.addblock(new Block(++i,myTransations));
+    let bc=new Block(++i,myTransations);
+    console.log("sucess");
+    bchain.addblock(bc);
     myTransations=[];
 }
 function showBlockchain(){
