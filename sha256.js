@@ -25,8 +25,8 @@ function getHash(msgblock) {
     }
 
     for (let i = 16; i < 64; i++) {
-      let s0 = xor(rightRotate("" + W[i - 15], 7), rightRotate("" + W[i - 15], 18), rightShift("" + W[i - 15], 3));
-      let s1 = xor(rightRotate("" + W[i - 2], 17), rightRotate("" + W[i - 2], 19), rightShift("" + W[i - 2], 10));
+      let s0 = xor(rightRotate(W[i - 15], 7), rightRotate(W[i - 15], 18), rightShift(W[i - 15], 3));
+      let s1 = xor(rightRotate(W[i - 2], 17), rightRotate(W[i - 2], 19), rightShift(W[i - 2], 10));
       // addition 
       W[i] = (((parseInt(W[i - 16], 2) + parseInt(s0, 2) + parseInt(W[i - 7], 2) + parseInt(s1, 2)) % Math.pow(2, 32)).toString(2)).padStart(32, "0");
     }
@@ -48,6 +48,7 @@ function getHash(msgblock) {
       a = (((T1 + T2) % Math.pow(2, 32)).toString(2)).padStart(32, "0");
 
     }
+    
     H[0] = modifyAdd(H[0], a);
     H[1] = modifyAdd(H[1], b);
     H[2] = modifyAdd(H[2], c);
@@ -56,20 +57,22 @@ function getHash(msgblock) {
     H[5] = modifyAdd(H[5], f);
     H[6] = modifyAdd(H[6], g);
     H[7] = modifyAdd(H[7], h);
+    
 
   }
  
-  return (hexToHash(H)).padStart(64,"0");
+  return (hexToHash(H));
   
 
 }
-//FUNCTIONS 
+//FUNCTIONS   
 
 
 function hexToHash(H) {
   let res = "";
   for (let i = 0; i < H.length; i++) {
     res += H[i];
+    
   }
   return res;
 }
@@ -117,7 +120,7 @@ function xor(a, b, c) {
   
 }
 function modifyAdd(l, m) {
-  return ((parseInt(l, 16) + parseInt(m, 2)) % Math.pow(2, 32)).toString(16);
+  return ((parseInt(l, 16) + parseInt(m, 2)) % Math.pow(2, 32)).toString(16).padStart(8,"0");
 }
 function strToBinary(str) {
   var bin = '';
